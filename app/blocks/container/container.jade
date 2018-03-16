@@ -1,0 +1,41 @@
+mixin container()
+	+b.container&attributes(attributes)
+		block
+		.container__title Ты сегодня покормил кота?
+		// Упаковки
+		.items
+			// Упаковка - фуа-гра
+			mixin item(name, portions, mouses, weight, ended)
+				.item(class= ended)
+					// Фоны
+					.item__frame
+						img(src='../../images/frame__default.png').item__frame-img-default
+						img(src='../../images/frame__default-hover.png').item__frame-img.item__frame-img-default-hover
+						img(src='../../images/frame__selected.png').item__frame-img.item__frame-img-selected
+						img(src='../../images/frame__selected-hover.png').item__frame-img.item__frame-img-selected-hover
+						img(src='../../images/frame__disabled.png').item__frame-img.item__frame-img-disabled
+					// Содержимое
+					.item__content
+						// Заголовки
+						.item__title
+							.item__title-row1 Сказочное заморское яство
+							.item__title-row2 Нямушка
+							.item__title-row3= name
+						// Что внутри
+						.item__text
+							.item__text-row1= portions
+							.item__text-row2= mouses
+						// Вес упаковки
+						.item__weight
+							.item__weight-number= weight
+							.item__weight-units кг
+					// Подпись под упаковкой
+					.item__description Чего сидишь? Порадуй котэ,
+						a(href='#').item__description-a купи
+						span.item__description-dot .
+					.item__description.item__description_2 Печалька, с курой закончился
+						
+			+item('с фуа-гра', '10 порций', 'мышь в подарок', '0,5')
+			+item('с рыбой', '40 порций', '2 мыши в подарок', '2')
+			+item('с курой', '100 порций', '5 мышей в подарок заказчик доволен', '5', 'ended')
+					
