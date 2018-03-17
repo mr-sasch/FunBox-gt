@@ -1,3 +1,3 @@
-// function selectIt() {
-//   this.classList.toggle('selected');
+// function hoverDisable() {
+//   this.style.color = 'red';
 // }
