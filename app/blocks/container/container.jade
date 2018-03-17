@@ -5,15 +5,17 @@ mixin container()
 		// Упаковки
 		.items
 			// Упаковка - фуа-гра
-			mixin item(idNumber, name, portions, mouses, weight, selected, select, ended)
-				.item(id= idNumber class= ended class= select)
+			mixin item(name, portions, mouses, weight, selected, select, ended, click)
+				.item(class= ended class= select onclick= click)
 					// Фоны
 					.item__frame
-						img(src='../../images/frame__default.png').item__frame-img-default
-						img(src='../../images/frame__default-hover.png').item__frame-img.item__frame-img-default-hover
-						img(src='../../images/frame__selected.png').item__frame-img.item__frame-img-selected
-						img(src='../../images/frame__selected-hover.png').item__frame-img.item__frame-img-selected-hover
-						img(src='../../images/frame__disabled.png').item__frame-img.item__frame-img-disabled
+						.item__frame-default						
+							img(src='../../images/frame__default.png').item__frame-default-img
+							img(src='../../images/frame__default-hover.png').item__frame-default-img-hover
+						.item__frame-selected
+							img(src='../../images/frame__selected.png').item__frame-selected-img
+							img(src='../../images/frame__selected-hover.png').item__frame-selected-img-hover
+						img(src='../../images/frame__disabled.png').item__frame-disabled-img
 					// Содержимое
 					.item__content
 						// Заголовки
@@ -39,7 +41,7 @@ mixin container()
 					.item__description.item__description_disabled Печалька, с курой закончился
 					// Товар выбран
 					.item__description.item__description_selected= selected
-			+item('item-1', 'с фуа-гра', '10 порций', 'мышь в подарок', '0,5', 'Печень утки разварная с артишоками.', 'selected', '')
-			+item('item-2', 'с рыбой', '40 порций', '2 мыши в подарок', '2', 'Головы щучьи с чесноком да свежайшая сёмгушка.', '', '')
-			+item('item-3', 'с курой', '100 порций', '5 мышей в подарок заказчик доволен', '5', 'Филе из цыплят с трюфелями в бульоне.', '', 'ended')
+			+item('с фуа-гра', '10 порций', 'мышь в подарок', '0,5', 'Печень утки разварная с артишоками.', '', '', 'this.classList.toggle("selected");')
+			+item('с рыбой', '40 порций', '2 мыши в подарок', '2', 'Головы щучьи с чесноком да свежайшая сёмгушка.', '', '', 'this.classList.toggle("selected");')
+			+item('с курой', '100 порций', '5 мышей в подарок заказчик доволен', '5', 'Филе из цыплят с трюфелями в бульоне.', '', 'ended')
 					

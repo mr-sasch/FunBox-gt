@@ -1,9 +1,9 @@
 @font-face
 	font-family Exo
-	src url(../../Exo.otf)
+	src url(../../fonts/Exo.otf)
 @font-face
 	font-family 'Trebuchet MS'
-	src url(../../9412.ttf)
+	src url(../../fonts/9412.ttf)
 
 .page
 	background-image url('../../images/bg.png')
@@ -38,26 +38,66 @@
 .item
 	position relative
 	margin-bottom 70px
+	*
+		transition .2s ease
 /* /Упаковки */
 
 /* Фоны */
 .item__frame
 	position relative
-.item__frame-img
+.item__frame-default-img-hover,
+.item__frame-selected-img-hover,
+.item__frame-disabled-img,
+.item__frame-selected
 	position absolute
+	width 100%
 	left 0
 	top 0
-	width 100%
-	z-index 5
-.item__frame-img-default
+.item__frame-default
 	position relative
-	z-index 10
-	transition .2s ease
-.item__frame-img-selected,
-.item__frame-img-selected-hover,
+	z-index 30
+	opacity 1
+.item__frame-default-img
+	position relative
+	z-index 20
+.item__frame-selected
+	position absolute
+	z-index 20
+	opacity 1
+.item__frame-selected-img
+	position relative
+	z-index 20
+.selected	.item__frame-default
+	opacity 0
 .item__frame-img-disabled
+	z-index 10
 	opacity 0
 /* /Фоны */
+
+/* Ховеры */
+	/* default */
+.item:hover
+	.item__frame-default-img
+		opacity 0
+	.item__weight
+		background-color lightBlueColor
+	.item__description-a,
+	.item__description-dot
+		color lightBlueColor
+	/* /default */
+
+	/* selected */
+.item.selected:hover
+	.item__frame-selected-img
+		opacity 0
+	.item__title-row1.item__title-row1-selected-hover
+		opacity 1
+	.item__title-row1
+		opacity 0
+	.item__weight
+		background-color lightRedColor
+	/* /selected */
+/* /Ховеры */
 
 /* Содержимое */
 .item__content
@@ -76,13 +116,13 @@
 .item__title-row1
 	color #666
 	font-size 16px
-	transition .2s ease
+
 .item__title-row1-selected-hover
 	position absolute
 	color lightRedColor
 	top 0
 	opacity 0
-	transition .2s ease
+
 .item__title-row2
 	color #000
 	font-size 48px
@@ -117,7 +157,6 @@
 	border-radius 50%
 	background-color blueColor
 	color #fff
-	transition .2s ease
 .item__weight-number
 	font-size 42px
 .item__weight-units
@@ -143,56 +182,36 @@
 	font-weight 600
 	text-decoration none
 	border-bottom 1px dashed blueColor
-	transition .2s ease
 .item__description-dot
 	color blueColor
 	font-weight 600
 	text-decoration none
 	margin-left -4px
-	transition .2s ease
 /* /Подпись под упаковкой */
-
-/* Ховеры */
-	/* default */
-.item:hover
-	.item__frame-img-default
-		opacity 0
-	.item__weight
-		background-color lightBlueColor
-	.item__description-a,
-	.item__description-dot
-		color lightBlueColor
-	/* /default */
-	/* selected */
-.item.selected:hover
-	.item__frame-img-selected
-		opacity 0
-	.item__title-row1.item__title-row1-selected-hover
-		opacity 1
-	.item__title-row1
-		opacity 0
-	.item__weight
-		background-color lightRedColor
-	/* /selected */
-/* /Ховеры */
 
 /* Товар закончился */
 .ended
+	.item__frame-default,
+	.item__frame-selected
+		opacity 0
 	.item__weight
 		background-color greyColor
 	.item__description
 		opacity 0
 	.item__description_disabled
 		opacity 1
-	.item__frame-img-default
+	.item__frame-default
 		opacity 0
-	.item__frame-img.item__frame-img-disabled
+	.item__frame-img-disabled
 		opacity 1
 	.item__title-row1,
 	.item__title-row2,
 	.item__title-row3,
 	.item__text
 		color greyColor
+.item.ended:hover
+	.item__weight
+		background-color greyColor
 /* /Товар закончился */
 
 /* Товар выбран */
@@ -201,18 +220,16 @@
 		opacity 0
 	.item__description_selected
 		opacity 1
-	.item__frame-img-default
+	.item__frame-default-img
 		opacity 0
-	.item__frame-img-default-hover
+	.item__frame-default-img-hover
 		opacity 0
-	.item__frame-img.item__frame-img-selected
+	.item__frame-selected-img
 		opacity 1
-		transition .2s ease
 		z-index 10
-	.item__frame-img.item__frame-img-selected-hover
+	.item__frame-selected-img-hover
 		opacity 1
 		z-index 5
 	.item__weight
 		background-color redColor
-		transition .2s ease
 /* /Товар выбран */
