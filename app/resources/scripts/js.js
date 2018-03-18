@@ -1,6 +1,7 @@
 var items = document.getElementById('items');
 
 items.onclick = function(event) {
+
   var target = event.target;
   while (target != this) {
     if (target.className == 'item' || target.className == 'item selected') {
@@ -9,8 +10,21 @@ items.onclick = function(event) {
     }
     target = target.parentNode;
   }
+
 }
 
 function highlight(node) {
-  node.classList.toggle('selected');
+  var elem = node.classList;
+  elem.toggle('selected');
+}
+
+
+// ховер
+items.onmouseenter = function() {
+  document.body.style.pointerEvents = 'none';
+  return;
+}
+items.onmouseleave = function() {
+  document.body.style.pointerEvents = 'initial';
+  return;
 }
