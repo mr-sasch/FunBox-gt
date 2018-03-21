@@ -6,9 +6,9 @@
 	src url(../../fonts/9412.ttf)
 
 .page
-	background-image url('../../images/bg.png')
 	background-size cover
 	width 100%
+	background-image url('../../images/bg.png')
 	height 100%
 	position absolute
 	font-family 'Trebuchet MS'
@@ -67,8 +67,6 @@
 .item__frame-selected-img
 	position relative
 	z-index 20
-.selected	.item__frame-default
-	opacity 0
 .item__frame-img-disabled
 	z-index 10
 	opacity 0
@@ -183,10 +181,10 @@
 	text-decoration none
 	border-bottom 1px dashed blueColor
 .item__description-dot
-	color blueColor
-	font-weight 600
-	text-decoration none
 	margin-left -4px
+	color blueColor
+	text-decoration none
+	font-weight 600
 /* /Подпись под упаковкой */
 
 /* Товар закончился */
@@ -220,16 +218,22 @@
 		opacity 0
 	.item__description_selected
 		opacity 1
+	.item__frame-default
+		opacity 0
 	.item__frame-default-img
 		opacity 0
 	.item__frame-default-img-hover
 		opacity 0
 	.item__frame-selected-img
-		opacity 1
 		z-index 10
-	.item__frame-selected-img-hover
 		opacity 1
+	.item__frame-selected-img-hover
 		z-index 5
+		opacity 1
 	.item__weight
 		background-color redColor
 /* /Товар выбран */
+
+/* Временные */
+
+/* /Временные */
