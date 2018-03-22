@@ -6,29 +6,29 @@
 	src url(../../fonts/9412.ttf)
 
 .page
-	background-size cover
-	width 100%
-	background-image url('../../images/bg.png')
-	height 100%
 	position absolute
+	width 100%
+	height 100%
 	font-family 'Trebuchet MS'
+	background-image url('../../images/bg.png')
+	background-size cover
 
 .container
-	width 100%
-	height 100%
-	max-width 1200px
 	margin auto
 	display flex
 	flex-direction column
+	width 100%
+	max-width 1200px
+	height 100%
 	justify-content center
 
 .container__title
+	margin-top 10px
+	margin-bottom 27px
 	font-family Exo
-	color #fff
 	font-size 36px
 	text-align center
-	margin-bottom 27px
-	margin-top 10px
+	color #fff
 
 /* Упаковки */
 .items
@@ -50,9 +50,9 @@
 .item__frame-disabled-img,
 .item__frame-selected
 	position absolute
-	width 100%
-	left 0
 	top 0
+	left 0
+	width 100%
 .item__frame-default
 	position relative
 	z-index 30
@@ -74,7 +74,7 @@
 
 /* Ховеры */
 	/* default */
-.item:hover
+.item:hover:not(.not-hover)
 	.item__frame-default-img
 		opacity 0
 	.item__weight
@@ -85,7 +85,7 @@
 	/* /default */
 
 	/* selected */
-.item.selected:hover
+.item.selected:hover:not(.not-hover)
 	.item__frame-selected-img
 		opacity 0
 	.item__title-row1.item__title-row1-selected-hover
@@ -100,61 +100,61 @@
 /* Содержимое */
 .item__content
 	position absolute
-	padding-left 48px
+	z-index 30
+	top 0
 	padding-top 23px
+	padding-left 48px
 	width 100%
 	height 100%
-	top 0
-	z-index 30
 /* /Содержимое */
 
 /* Заголовки */
 .item__title
 	position relative
 .item__title-row1
-	color #666
 	font-size 16px
+	color #666
 
 .item__title-row1-selected-hover
 	position absolute
-	color lightRedColor
 	top 0
+	color lightRedColor
 	opacity 0
 
 .item__title-row2
-	color #000
+	margin-top 8px
 	font-size 48px
 	font-weight 600
-	margin-top 8px
 	line-height 54px
+	color #000
 .item__title-row3
+	margin-bottom 16px
 	font-size 24px
 	font-weight 600
-	margin-bottom 16px
 /* /Заголовки */
 
 /* Что внутри */
 .item__text
+	max-width 160px
 	font-size 14px
 	line-height 17px
 	color #666
-	max-width 160px
 /* /Что внутри */
 
 /* Вес упаковки */
 .item__weight
 	position absolute
-	bottom 17px
 	right 15px
+	bottom 17px
 	display flex
 	flex-direction column
-	justify-content center
 	align-items center
+	justify-content center
 	width 81px
 	height 81px
+	color #fff
 	border-radius 50%
 	background-color blueColor
-	color #fff
 .item__weight-number
 	font-size 42px
 .item__weight-units
@@ -163,28 +163,28 @@
 
 /* Подпись под упаковкой */
 .item__description
-	color #fff
-	text-align center
 	position absolute
-	width 100%
 	top 100%
 	padding-top 13px
+	width 100%
 	font-size 13px
-.item__description_disabled
-	opacity 0
+	text-align center
+	color #fff
+.item__description-disabled
 	color #ff6
-.item__description_selected
+	opacity 0
+.item__description-selected
 	opacity 0
 .item__description-a
-	color blueColor
 	font-weight 600
 	text-decoration none
+	color blueColor
 	border-bottom 1px dashed blueColor
 .item__description-dot
 	margin-left -4px
-	color blueColor
-	text-decoration none
 	font-weight 600
+	text-decoration none
+	color blueColor
 /* /Подпись под упаковкой */
 
 /* Товар закончился */
@@ -216,7 +216,7 @@
 .selected
 	.item__description
 		opacity 0
-	.item__description_selected
+	.item__description-selected
 		opacity 1
 	.item__frame-default
 		opacity 0
